@@ -1,0 +1,5 @@
+*.class
+HahaSql*.java
+HahaSql*.interp
+HahaSql*.tokens
+
