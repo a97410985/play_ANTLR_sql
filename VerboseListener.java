@@ -1,4 +1,5 @@
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.atn.Transition;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ public class VerboseListener extends BaseErrorListener {
         List<String> stack = ((Parser) recognizer).getRuleInvocationStack();
         Collections.reverse(stack);
         System.err.println("rule stack: " + stack);
-        System.err.println("line" + line + ":" + charPositionInLine + "at" + offendingSymbol + ": " + msg);
+        System.err.println("line" + line + ":" + charPositionInLine + " at" + offendingSymbol + ": " + msg);
 
         System.err.println("e : " + e);
 
