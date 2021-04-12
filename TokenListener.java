@@ -18,11 +18,12 @@ public class TokenListener extends HahaSqlBaseListener {
         // System.out.println("TokenListener : " + node.getText() + " start position : "
         // + node.getSymbol().getStartIndex()
         // + " stop position : " + node.getSymbol().getStopIndex());
+        String type = parser.getVocabulary().getSymbolicName(node.getSymbol().getType());
         System.out.println("parser.getState(): " + parser.getState() + "    node.getSymbol(): " + node.getSymbol()
-                + "    " + parser.getRuleNames()[parser.getRuleContext().getRuleIndex()]);
+                + "    " + parser.getRuleNames()[parser.getRuleContext().getRuleIndex()] + "    " + type);
         Transition[] transitions = parser.getATN().states.get(parser.getState()).getTransitions();
         for (Transition transition : transitions) {
-            System.out.println("state haha: " + transition.target.stateNumber);
+            System.out.println("next state: " + transition.target.stateNumber);
 
         }
     }
