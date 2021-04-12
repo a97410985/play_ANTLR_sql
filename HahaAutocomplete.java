@@ -21,9 +21,14 @@ public class HahaAutocomplete {
 
         System.out.println("======");
 
+        HahaAutocomplete.predictNextTokensAndRule(parser, 23);
+
+    }
+
+    public static void predictNextTokensAndRule(HahaSqlParser parser, int stateNum) {
         HahaSqlParser.ProgContext ctx = new HahaSqlParser.ProgContext(parser.getContext(), parser.getState());
         parser.setContext(ctx);
-        int curState = 23;
+        int curState = stateNum;
         parser.setState(curState);
         String ruleName = parser.getRuleNames()[parser.getRuleContext().getRuleIndex()];
         IntervalSet expetectedTokens = parser.getExpectedTokens();
