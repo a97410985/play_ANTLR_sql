@@ -1,18 +1,13 @@
 import java.io.IOException;
 
-import org.antlr.v4.parse.ANTLRParser.parserRule_return;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.atn.RuleStartState;
 import org.antlr.v4.runtime.atn.Transition;
 import org.antlr.v4.runtime.misc.IntervalSet;
 
 public class HahaAutocomplete {
     public static void main(String[] args) throws IOException {
-        // CharStream charStream = CharStreams.fromString("select name, age, max(salary)
-        // from employees;");
         CharStream charStream = CharStreams.fromString("select name, age,  from employees;");
 
         HahaSqlLexer lexer = new HahaSqlLexer(charStream);
@@ -25,6 +20,7 @@ public class HahaAutocomplete {
         parser.prog();
 
         System.out.println("======");
+
         HahaSqlParser.ProgContext ctx = new HahaSqlParser.ProgContext(parser.getContext(), parser.getState());
         parser.setContext(ctx);
         int curState = 23;
